@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index Page</title>
+</head>
+
+<body>
+    <h1>Chat App</h1>
+    <main id="app">
+        <form>
+            <label for="message"> Something to say?</label>
+            <textarea v-model="message" class="message" id="textarea" autocomplete="off">
+            </textarea>
+            <input @click.prevent="dispatchMessage" type="button" value="Send">   
+        </form>
+        <section class="messages">
+            <ul id="messages">
+                <!--render a new message component for every message -->
+                <newmsg v-for="message in messages" :message="message"></newmsg>
+            </ul>
+        </section>
+    </main>
+    <!-- navigating to the contact page for the designated route-->
+    <!-- contact word is used as that is the route-->
+
+    <!-- bringing vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- bringing socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- bringing main.js -->
+    <script src="/js/main.js" type="module" defer></script>
+</body>
+
+</html>
