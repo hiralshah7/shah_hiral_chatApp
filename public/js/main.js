@@ -34,7 +34,8 @@ import chatMsg from './components/ChatMessage.js';
       methods: {
         // this is the method that will be called when the button is clicked      
         dispatchMessage() {
-           socket.emit('chat_message', { content: this.message, name: this.nickname || "anonymous" 
+           socket.emit('chat_message', { content: this.message, name: this.nickname || "anonymous",
+           id: this.socketID
         })
 
          this.message = "";

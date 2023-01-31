@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>index Page</title>
 </head>
 
 <body>
     <h1>Chat App</h1>
     <main id="app">
+        <h2>Input Message Here:</h2>
+        <!-- adding nickname -->
+        <input v-model="nickname" type="text" placeholder="Nickname?" id="nickname">
+        <section>
         <form>
             <label for="message"> Something to say?</label>
             <textarea v-model="message" class="message" id="textarea" autocomplete="off">
             </textarea>
             <input @click.prevent="dispatchMessage" type="button" value="Send">   
         </form>
+    </section>
         <section class="messages">
             <ul id="messages">
                 <!--render a new message component for every message -->
                 <newmsg v-for="message in messages" :message="message"></newmsg>
             </ul>
         </section>
+        
     </main>
     <!-- navigating to the contact page for the designated route-->
     <!-- contact word is used as that is the route-->
