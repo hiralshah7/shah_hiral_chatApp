@@ -18,6 +18,10 @@ import chatMsg from './components/ChatMessage.js';
        console.log(message);
     }
 
+    function handleUserTyping(user) {
+      console.log('user is typing a message');
+    }
+
     // making the vue instance
     const { createApp } = Vue
 
@@ -39,7 +43,13 @@ import chatMsg from './components/ChatMessage.js';
         })
 
          this.message = "";
-          } 
+          },
+
+          catchTextFocus() {
+            //emit a typing event to the server
+            console.log('focused');
+            socket.emit('user_typing', { name: this.nickname || "anonymous" });
+          }
       },
 
       components: {
@@ -52,3 +62,5 @@ import chatMsg from './components/ChatMessage.js';
     // this is the function that will be called when the socket emits the 'connected' event
     socket.addEventListener('connected', setUserID);
     socket.addEventListener('new_message', showNewMessage);
+    // catch the typing event
+    socket.addEventListener('typing', handleUserTyping);

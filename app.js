@@ -39,7 +39,19 @@ io.on('connection', (socket) => {
 
         io.emit('new_message', {message: msg});
     });
+
+    // listen for a typing event from the user and broadcast it to everyone else
+    socket.on('user_typing', function(user) {
+        console.log(user);
+
+        io.emit('typing', { currentlytyping: user });
+    });
     // this is a function which will get a id of the socket and send it to the client
     // we are emitting the event 'connected' and sending the data object to the client
     socket.emit('connected', {sID: socket.id, message: 'new connection'});
   });
+
+
+  // adding event
+  // step 1 : catch the event
+  // step 2: throw the event
