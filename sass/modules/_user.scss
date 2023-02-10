@@ -1,0 +1,25 @@
+.parent-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    padding-top: 150px;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+  
+
+}
+
+.user-name {
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+

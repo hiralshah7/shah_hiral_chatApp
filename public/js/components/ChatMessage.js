@@ -11,6 +11,8 @@ export default {
     </article>
     `,
 
+    
+
     data() {
         return {
             message: 'hello from the chat message component',

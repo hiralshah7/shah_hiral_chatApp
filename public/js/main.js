@@ -1,5 +1,7 @@
 // import will always go on top
 import chatMsg from './components/ChatMessage.js';
+import User from './components/User.js';
+import usertyping from './components/usertyping.js';
 
     const socket = io();
 
@@ -18,6 +20,9 @@ import chatMsg from './components/ChatMessage.js';
        console.log(message);
     }
 
+    // function showCurrentlyTyping({ currentlytyping }) {
+    //     vm.typing = push(currentlytyping);
+    // }
     function handleUserTyping(user) {
       console.log('user is typing a message');
     }
@@ -31,8 +36,16 @@ import chatMsg from './components/ChatMessage.js';
           socketID : '',
             message : '',
             messages: [],
+            User: [],
 
         }
+      },
+
+      created() {
+        socket.on('typing', (nickname) => {
+        
+            this.typing = nickname + ' is typing...';
+        });
       },
 
       methods: {
@@ -48,12 +61,15 @@ import chatMsg from './components/ChatMessage.js';
           catchTextFocus() {
             //emit a typing event to the server
             console.log('focused');
-            socket.emit('user_typing', { name: this.nickname || "anonymous" });
+            socket.emit('typing', { name: this.nickname || "anonymous" });
+            // to show when the user starts typing
           }
       },
 
       components: {
-        newmsg: chatMsg
+        newmsg: chatMsg,
+        User: User,
+        usertyping: usertyping
         // this is where we will define our components
       }
     }).mount('#app');
@@ -64,3 +80,5 @@ import chatMsg from './components/ChatMessage.js';
     socket.addEventListener('new_message', showNewMessage);
     // catch the typing event
     socket.addEventListener('typing', handleUserTyping);
+    // socket.addEventListener('typing', showCurrentlyTyping);
+    

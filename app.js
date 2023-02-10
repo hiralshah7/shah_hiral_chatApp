@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
     });
 
     // listen for a typing event from the user and broadcast it to everyone else
-    socket.on('user_typing', function(user) {
+    socket.on('typing', function(user) {
         console.log(user);
 
         io.emit('typing', { currentlytyping: user });
