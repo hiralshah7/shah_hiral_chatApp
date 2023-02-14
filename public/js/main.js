@@ -25,7 +25,23 @@ import usertyping from './components/usertyping.js';
     // }
     function handleUserTyping(user) {
       console.log('user is typing a message');
+      // show the user is typing on Useer side pulling it from console log
+      // emit the typing event to the server without excedding the maximum call stack size
+     vm.typing.push(user);
+
     }
+
+    //stop user typing 
+    function handleUserStopTyping(user) {
+      console.log('user stopped typing a message');
+      // show the user is typing on Useer side pulling it from console log
+      // emit the typing event to the server without excedding the maximum call stack size
+      // show typing message on the user side on other side with the nickname 
+      vm.typing.push(user);
+      socket.emit('stopTyping', user);
+
+    }
+
 
     // making the vue instance
     const { createApp } = Vue
@@ -37,14 +53,23 @@ import usertyping from './components/usertyping.js';
             message : '',
             messages: [],
             User: [],
+            typing: '',
+            nickname: '',
 
         }
       },
 
       created() {
         socket.on('typing', (nickname) => {
-        
-            this.typing = nickname + ' is typing...';
+
+          if (nickname.id != this.socketID) {
+            this.typing = nickname.name + ' is typing...';
+          }
+          
+       
+            // this.typing = nickname + ' is typing...';
+            
+         
         });
       },
       
@@ -58,12 +83,21 @@ import usertyping from './components/usertyping.js';
 
          this.message = "";
           },
+          
 
           catchTextFocus() {
             //emit a typing event to the server
             console.log('focused');
-            socket.emit('typing', { name: this.nickname || "anonymous" });
-            // to show when the user starts typing
+            socket.emit('typing', { name: this.nickname || "anonymous",
+          
+            id: this.socketID
+          });
+           
+            // show it on front end when user starts typing with speicifc other id
+            // this.typing = this.nickname + ' is typing...';
+            
+
+
           },
 
          
@@ -86,5 +120,4 @@ import usertyping from './components/usertyping.js';
     socket.addEventListener('new_message', showNewMessage);
     // catch the typing event
     socket.addEventListener('typing', handleUserTyping);
-    // socket.addEventListener('typing', showCurrentlyTyping);
     

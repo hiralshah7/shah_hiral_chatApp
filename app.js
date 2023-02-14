@@ -46,32 +46,29 @@ io.on('connection', (socket) => {
 
         io.emit('typing', { currentlytyping: user });
     });
+
+    // listen for a stop typing event from the user and broadcast it to everyone else
+    socket.on('stopTyping', function(user) {
+        console.log(user);
+
+        // emit the stop typing event to the server
+        io.emit('stopTyping', { currentlytyping: user });
+    });
+
+
     // this is a function which will get a id of the socket and send it to the client
     // we are emitting the event 'connected' and sending the data object to the client
     socket.emit('connected', {sID: socket.id, message: 'new connection'});
 
 
     socket.on ('typing', (data) => {
-        socket.broadcast.emit('typing', (data)  );
-        });
-    
-        socket.on('stopTyping', () => {
-            socket.broadcast.emit('stopTyping', (data) );
-        });
-    
-        socket.on('typing', () =>
-        {
-            this.typing = true;
-        } );
-    
-        socket.on('stopTyping', () =>
-        {
-            this.typing = false;
-        }
+        socket.broadcast.emit('typing', (data) 
+
+        
         );
+        });
     
     
-   
   });
 
   
