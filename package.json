@@ -25,6 +25,7 @@
     "homepage": "https://github.com/hiralshah7/shah_hiral_chatApp#readme",
     "dependencies": {
         "express": "^4.18.2",
+        "robohash-avatars": "^1.0.1",
         "socket.io": "^4.5.4"
     }
 }

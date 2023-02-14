@@ -47,7 +47,8 @@ import usertyping from './components/usertyping.js';
             this.typing = nickname + ' is typing...';
         });
       },
-
+      
+      
       methods: {
         // this is the method that will be called when the button is clicked      
         dispatchMessage() {
@@ -63,7 +64,9 @@ import usertyping from './components/usertyping.js';
             console.log('focused');
             socket.emit('typing', { name: this.nickname || "anonymous" });
             // to show when the user starts typing
-          }
+          },
+
+         
       },
 
       components: {
@@ -72,7 +75,10 @@ import usertyping from './components/usertyping.js';
         usertyping: usertyping
         // this is where we will define our components
       }
+
+
     }).mount('#app');
+
 
 
     // this is the function that will be called when the socket emits the 'connected' event

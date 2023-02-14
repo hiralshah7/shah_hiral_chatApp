@@ -10,17 +10,33 @@ export default {
   </div>
     `,
 
+    //value in the message box for typing event and stop typing event
+
+    
+
     
 
     data() {
         return {
             typing: '',
-            message: ''
+            message: '',
+            typing:  false,
+
         }
     },
+
+    watch: {
+     new_message(value) {
+        value ? socket.emit('typing', this.nickname) : socket.emit('stoptyping');
+    },
+  },
         methods: {
-            handleUserTyping() {
-              
-            }
-          }
-        };
+            handleUserTyping() {}
+        },
+
+      
+
+
+    }
+
+   

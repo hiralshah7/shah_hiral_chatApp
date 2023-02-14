@@ -21,21 +21,13 @@
         </div>
      
         <!-- showing the avatar As per the user name -->
-         <div v-if="joined">
-         <div v-if="currentUser" class="user-avatar">
-         <img :src="'images/' + currentUser + '.png'" alt="user avatar">
-         </div>
-         </div>
-         </div>
-         <!-- handle user typing -->
-         <div v-if="handleUserTyping">
-         <p>{{ currentUser }} is typing...</p>
-         </div>, initial-scale=1.0">
-         </head>
-         </head>
-    <title>Document</title>
-</head>
-<body>
+ <!-- showing the avatar As per the user name -->
+ <div v-if="joined">
+    <div v-if="currentUser" class="user-avatar"><div>
+    <img :src="'images/' + currentUser + '.png'" alt="user avatar">
+    </div>
+</div>
+
     
 </body>
 </html>

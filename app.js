@@ -30,7 +30,7 @@ server.listen(port, () => {
 // this will run when a client connects and will log a message to the server console
 io.on('connection', (socket) => {
     console.log('a user connected', socket);
-    socket.emit('connected', { sID: socket.id, message: 'new connection' });
+    socket.emit('connected', { sID: socket.id, message: 'new connection'});
     // listen for incoming messages from anyone connected to this socket chat service and ten see what that message is
     socket.on('chat_message', function(msg) {
         // step one = receive the message
@@ -49,7 +49,35 @@ io.on('connection', (socket) => {
     // this is a function which will get a id of the socket and send it to the client
     // we are emitting the event 'connected' and sending the data object to the client
     socket.emit('connected', {sID: socket.id, message: 'new connection'});
+
+
+    socket.on ('typing', (data) => {
+        socket.broadcast.emit('typing', (data)  );
+        });
+    
+        socket.on('stopTyping', () => {
+            socket.broadcast.emit('stopTyping', (data) );
+        });
+    
+        socket.on('typing', () =>
+        {
+            this.typing = true;
+        } );
+    
+        socket.on('stopTyping', () =>
+        {
+            this.typing = false;
+        }
+        );
+    
+    
+   
   });
+
+  
+  
+
+
 
 
   // adding event
