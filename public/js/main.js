@@ -16,7 +16,7 @@ import usertyping from './components/usertyping.js';
     function showNewMessage({ message}) {
         vm.messages.push(message);
        console.log(message);
-    }
+    };
 
     function handleUserTyping(user) {
       console.log('user is typing a message');
@@ -44,7 +44,7 @@ import usertyping from './components/usertyping.js';
 
       //adding a timeout to the typing event so that it will stop after 2 seconds but should 
 
-    }
+    };
 
     //play audio once the messsage is reiceved
     function playAudio() {
@@ -60,32 +60,17 @@ import usertyping from './components/usertyping.js';
       }
       else {
         audio.pause();
-      }
+      };
+
+    };
+    
+
+    
+     
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-    }
-
-
-  
-
-
-    // making the vue instance
     const { createApp } = Vue
 
     const vm = createApp({
@@ -98,6 +83,7 @@ import usertyping from './components/usertyping.js';
             typing: '',
             nickname: '',
             typist: '',
+            showConnectedUsers: '',
         }
       },
       
@@ -120,27 +106,8 @@ import usertyping from './components/usertyping.js';
               name: this.nickname || "anonymous",          
               id: this.socketID
           },
-         
-          
-          
-            
-
-
-
 
           );
-
-
-          
-
-
-
-
-
-        
-
-            
-
 
           },
       
@@ -163,4 +130,5 @@ import usertyping from './components/usertyping.js';
     // catch the typing event
     socket.addEventListener('typing', handleUserTyping);
     socket.addEventListener('new_message', playAudio);
-    
+
+  

@@ -25,12 +25,7 @@ export default {
 
         }
     },
-
-    watch: {
-     new_message(value) {
-        value ? socket.emit('typist', this.nickname) : socket.emit('stoptyping');
-    },
-  },
+    
         methods: {
             handleUserTyping() {}
         },

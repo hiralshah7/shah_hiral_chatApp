@@ -5,15 +5,6 @@ body {
 }
 
 
-.parent-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    padding-top: 150px;
-}
-
 .name-container {
     display: flex;
     flex-direction: column;
@@ -23,10 +14,95 @@ body {
 
 .user-name {
     height: 30px;
-    font-size: 20px;
+    font-size: 17px;
     padding: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-    font-weight: 600;
+    margin-bottom:15px;
+    text-align: left;
+    font-weight: 90;
+    // make it look good
+    border: 1px solid #fff;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    color: #fff;
+    text-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.5);
+    font-family: Helvetica, sans-serif;
+    
 }
 
+
+.join-button {
+    
+    height: 30px;
+    font-size: 10px;
+    // width: 100%;
+    padding: 2px;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 900;
+    // border: 1px solid #fff;
+    border-radius: 15px;
+    background: rgb(255, 255, 0);
+    color: #020202;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    &:hover {
+        background: #fff;
+        backdrop-filter: blur(15px);
+        color: #000000;
+        text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+        font-weight: 900;
+    }
+    
+}
+
+.uname {
+    font-size: 13px;
+    margin-bottom: 02px;
+    font-weight: 50;
+}
+.centerContainer {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+
+}
+
+.title {
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+    // make it on top and center of the screen
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+}
+
+
+.h1class {
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    align-items: center;
+    position: relative;    
+    left : 50%;
+    text-transform: uppercase;
+}

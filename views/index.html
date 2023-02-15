@@ -9,15 +9,13 @@
     <title>Chat</title>
 </head>
 <body>
-    <h1 id="main-headline">Chat App</h1>
+    <!-- <h1 id="main-headline">Chat App</h1> -->
 
     <main id="app">
         <section>
-           
-
+            <h1 class = "h1class"> Welcome to Chatapp</h1>
             <h2>Input messages here:</h2>
             <!-- rendering User name once they join the chat-->
-
             <input id="nickname" v-model="nickname" type="text" placeholder="Nickname?"> 
             <form>
                 <label for="message">Something to say?</label>
@@ -26,7 +24,6 @@
                 <p v-if="typing">{{ typist }}</p>
                 <usertyping>typing</usertyping>
                 <!-- handle user typing-->
-
                 <input @click.prevent="dispatchMessage" type="submit" value="Send">
             </form>
         </section>

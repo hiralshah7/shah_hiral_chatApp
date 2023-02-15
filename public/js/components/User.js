@@ -4,51 +4,50 @@ export default {
     props: ['user'],
 
     template: `
-
    <div v-if="!joined" class="parent-container">
-   <div class="name-container">
-   <input type="text" class="user-name" v-model="currentUser">
-   <button class="join-button" v-on:click="join">Join</button>
-   <!-- rendering user name once they join the chat -->
-  
+        <div class="centerContainer">
+            <div class="name-container">
+                <h1 class="title">Welcome to the ChatApp</h1>
+    
+   <!-- username input -->
+   
+    <h2 class="uname">Username</h2>
+        <input type="text" class="user-name" v-model="currentUser">
 
 
-   </div>
-   </div>
+   <!-- password input -->
+
+        <h2 class="uname">Password</h2>
+            <input type="password" class="user-name">
+
+   <!-- join button -->
+        <button class="join-button" v-on:click="join">Join</button>
+            </div>
+         </div>
+    </div>
+
    <!-- rendering welcome note once they join the chat -->
-    <div class="welcome-note" v-if="joined">
-    <h2>Welcome to the chat room, {{ currentUser }}!</h2>
+
+        <div class="welcome-note" v-if="joined">
+            <h2>Welcome to the chat room, {{ currentUser }}!</h2>
+        </div>
+            <div v-if="joined">
+        </div>
     </div>
-    <div v-if="joined">
-    <div v-if="currentUser" class="user-avatar"><div>
-    <img :src="'images/' + currentUser + '.png'" alt="user avatar">
-    </div>
-</div>
-</div>
    
     <!-- creating a button to sign out  and  page to reload -->
-    <div class="signout-button" v-if="joined">
-    <button class="signout-button" v-on:click="signout">Sign Out</button>
-    </div>
 
-    <!-- making sound once the message is recieved recieved from the server -->
-    <audio id="chatAudio">
-    <source src="audio/chat.mp3" type="audio/mpeg">
-    </audio>
+        <div class="signout-button" v-if="joined">
+            <button class="signout-button" v-on:click="signout">Sign Out</button>
+        </div>
 
-    `,
+
+  `,
 
     data() {
         return {
           joined: false,
           currentUser: '',
-
-
-          // rendering the user name once they join the chat
-
-         
-
-
         }
     },
 
@@ -58,6 +57,16 @@ export default {
             console.log(this.currentUser);
             // rendering the user name once they join the chat
             this.$emit('joined', this.currentUser);
+
+            if (this.currentUser == '') {
+                this.joined = false;
+                alert('Please enter your details');
+
+            }
+            else {
+                this.joined = true;
+
+            }
         },
 
         signout() {
@@ -65,15 +74,9 @@ export default {
             this.joined = false;
             location.reload();
             },
-
-        // making sound once the message is sent and recieved
-        playAudio() {
-         // play only when message is reieved 
-            let audio = document.getElementById('chatAudio');
-            audio.play();
             
-        }
+    }
 
 
-}
+
 }
