@@ -48,8 +48,37 @@ import usertyping from './components/usertyping.js';
 
     //play audio once the messsage is reiceved
     function playAudio() {
-      var audio = new Audio('chat.mp3');
-      audio.play();
+      var audio = new Audio('./audio/chat.mp3');
+      // audio.play();
+
+      //if message is recieved then the audio will play
+       // using if and else statement
+
+      if (vm.messages) {
+        console.log('message recieved');
+        audio.play();
+      }
+      else {
+        audio.pause();
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
     }
 
 
@@ -68,8 +97,7 @@ import usertyping from './components/usertyping.js';
             User: [],
             typing: '',
             nickname: '',
-            typist: ''
-
+            typist: '',
         }
       },
       
@@ -134,4 +162,5 @@ import usertyping from './components/usertyping.js';
     socket.addEventListener('new_message', showNewMessage);
     // catch the typing event
     socket.addEventListener('typing', handleUserTyping);
+    socket.addEventListener('new_message', playAudio);
     
