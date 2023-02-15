@@ -34,9 +34,25 @@ import usertyping from './components/usertyping.js';
       } 
       else {
         vm.typist = ' ';
+
       }
 
+      setTimeout (() => {
+        vm.typist = ' ';
+      }
+      , 2000);
+
+      //adding a timeout to the typing event so that it will stop after 2 seconds but should 
+
     }
+
+    //play audio once the messsage is reiceved
+    function playAudio() {
+      var audio = new Audio('chat.mp3');
+      audio.play();
+    }
+
+
   
 
 
@@ -53,6 +69,7 @@ import usertyping from './components/usertyping.js';
             typing: '',
             nickname: '',
             typist: ''
+
         }
       },
       
@@ -74,13 +91,31 @@ import usertyping from './components/usertyping.js';
             socket.emit('typing', { 
               name: this.nickname || "anonymous",          
               id: this.socketID
-          }
+          },
+         
+          
+          
+            
+
+
+
+
           );
-      
+
+
+          
+
+
+
+
+
+        
+
             
 
 
           },
+      
 
          
       },
