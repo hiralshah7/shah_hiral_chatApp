@@ -5,7 +5,7 @@ export default {
     template: `
 
     <div>
-    <div v-if="typing">{{typing}} is typing...</div>
+    <div>{{typist}}</div>
     <!-- other chat components -->
   </div>
     `,
@@ -21,13 +21,14 @@ export default {
             typing: '',
             message: '',
             typing:  false,
+            typist: '',
 
         }
     },
 
     watch: {
      new_message(value) {
-        value ? socket.emit('typing', this.nickname) : socket.emit('stoptyping');
+        value ? socket.emit('typist', this.nickname) : socket.emit('stoptyping');
     },
   },
         methods: {

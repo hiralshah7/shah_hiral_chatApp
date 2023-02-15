@@ -21,7 +21,7 @@ export default {
     </div>
     <div v-if="joined">
     <div v-if="currentUser" class="user-avatar"><div>
-    <img :src="'images/' + currentUser + '.png'" alt="user avatar" width="300px">
+    <img :src="'images/' + currentUser + '.png'" alt="user avatar">
     </div>
 </div>
 </div>

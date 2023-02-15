@@ -23,7 +23,7 @@
                 <label for="message">Something to say?</label>
                 <textarea @focus="catchTextFocus" v-model="message" id="textarea" class="message" autocomplete="off"></textarea>
                 <!-- handle user typing-->
-                <p v-if="typing">{{ nickname }} is typing...</p>
+                <p v-if="typing">{{ typist }}</p>
                 <usertyping>typing</usertyping>
                 <!-- handle user typing-->
 

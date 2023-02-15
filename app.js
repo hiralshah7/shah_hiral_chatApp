@@ -44,7 +44,7 @@ io.on('connection', (socket) => {
     socket.on('typing', function(user) {
         console.log(user);
 
-        io.emit('typing', { currentlytyping: user });
+        io.emit('typing', user);
     });
 
     // listen for a stop typing event from the user and broadcast it to everyone else
