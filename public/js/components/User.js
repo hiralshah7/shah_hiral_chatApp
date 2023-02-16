@@ -21,10 +21,10 @@ export default {
   
     
    <!-- username input -->
+   <div class="login-container">
 
     <h2 class="uname">Username</h2>
         <input type="text" class="user-name" v-model="currentUser">
-
 
    <!-- password input -->
 
@@ -35,6 +35,8 @@ export default {
         <button class="join-button" v-on:click="join">Join</button>
             </div>
          </div>
+    </div>
+
     </div>
 
    <!-- rendering welcome note once they join the chat -->

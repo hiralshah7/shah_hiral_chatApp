@@ -12,19 +12,40 @@ body {
 
 }
 
+.login-container {
+    
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    border-radius: 100px 100px 100px 0;
+    border: 05px solid #000e45 ;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    color: #000e45;
+    font-family: Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 70px;
+
+    //place it on center
+    
+    
+}
+
 .user-name {
     height: 30px;
     font-size: 17px;
     padding: 5px;
     margin-bottom:15px;
     text-align: left;
-    font-weight: 90;
-    border: 1px solid #fff;
+    font-weight: 790;
+    border: 1px solid #000e45 ;
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgb(255, 255, 255);
     backdrop-filter: blur(15px);
-    color: #fff;
-    text-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.5);
+    color: #000e45;
     font-family: Helvetica, sans-serif;
     
 }
@@ -34,11 +55,12 @@ body {
     
     height: 30px;
     font-size: 10px;
-    padding: 2px;
+    padding: 10px;
+    width: 90%;
     margin-top: 5px;
     text-align: center;
     font-weight: 900;
-    border-radius: 15px;
+    border-radius: 10px;
     background: #000e45;
     color: #ffffff;
     text-transform: uppercase;
