@@ -10,7 +10,6 @@ import usertyping from './components/usertyping.js';
  
         vm.socketID = sID;
 
-
     }
 
     function showNewMessage({ message}) {
@@ -63,13 +62,6 @@ import usertyping from './components/usertyping.js';
       };
 
     };
-    
-
-    
-     
-
-
-
 
     const { createApp } = Vue
 
@@ -83,7 +75,6 @@ import usertyping from './components/usertyping.js';
             typing: '',
             nickname: '',
             typist: '',
-            showConnectedUsers: '',
         }
       },
       
@@ -110,8 +101,6 @@ import usertyping from './components/usertyping.js';
           );
 
           },
-      
-
          
       },
 
@@ -127,7 +116,6 @@ import usertyping from './components/usertyping.js';
 
     socket.addEventListener('connected', setUserID);
     socket.addEventListener('new_message', showNewMessage);
-    // catch the typing event
     socket.addEventListener('typing', handleUserTyping);
     socket.addEventListener('new_message', playAudio);
 

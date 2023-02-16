@@ -50,20 +50,3 @@ input[type="submit"] {
     border-radius: 0.5em; 
 }
 
-
-.messages h2 { margin-bottom: 1em; }
-
-.chat-messages {
-    width: 45%;
-    border-radius: 1em;
-    padding: 0.5em 1em;
-    background-color: rgba(0, 150, 150, 0.8);
-    margin-bottom: 0.8em;
-    float: left;
-    clear: both;
-}
-
-.other-messages {
-    background-color: rgba(150, 107, 0, 0.8);
-    float: right;
-}

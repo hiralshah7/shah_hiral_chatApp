@@ -43,7 +43,6 @@ export default {
             <h2>Welcome to the chat room, {{ currentUser }}!</h2>
         </div>
             <div v-if="joined">
-        </div>
     </div>
    
     
@@ -52,7 +51,7 @@ export default {
 
     data() {
         return {
-          joined: true,
+          joined: false,
           currentUser: '',
         }
     },
