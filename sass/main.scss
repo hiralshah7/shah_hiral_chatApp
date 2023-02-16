@@ -1,0 +1,21 @@
+
+@import './modules/chatmessage.scss';
+@import './modules/reset.scss';
+@import './modules/_user.scss';
+@import './modules/vars.scss';
+
+
+// write some defaults here
+body {
+    font-size: 16px;
+    background-color: #bfbfbf;
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// main { 
+//     display: grid; 
+//     grid-template-columns: 1fr 1fr;
+//     grid-gap: 1em;
+// }
