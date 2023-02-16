@@ -4,13 +4,24 @@ export default {
     props: ['user'],
 
     template: `
+
+    <!-- creating a button to sign out  and  page to reload -->
+
+        <div class="signout-button" v-if="joined">
+            <button class="signout-button1" v-on:click="signout">Log Out</button>
+        </div>
+
+   
+
+
    <div v-if="!joined" class="parent-container">
         <div class="centerContainer">
             <div class="name-container">
                 <h1 class="title">Welcome to the ChatApp</h1>
+  
     
    <!-- username input -->
-   
+
     <h2 class="uname">Username</h2>
         <input type="text" class="user-name" v-model="currentUser">
 
@@ -35,18 +46,13 @@ export default {
         </div>
     </div>
    
-    <!-- creating a button to sign out  and  page to reload -->
-
-        <div class="signout-button" v-if="joined">
-            <button class="signout-button" v-on:click="signout">Sign Out</button>
-        </div>
-
+    
 
   `,
 
     data() {
         return {
-          joined: false,
+          joined: true,
           currentUser: '',
         }
     },

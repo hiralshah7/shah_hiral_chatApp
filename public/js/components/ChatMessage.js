@@ -5,8 +5,8 @@ export default {
     template: `
 
     <article class="chat-messages" :class= " { 'other-messages' :matchedID }">
-    <h2> {{ message.name }} says:</h2>
-    {{message.content }}
+        <h2> {{ message.name }} says:</h2>
+            {{message.content }}
     <p></p>
     </article>
     `,

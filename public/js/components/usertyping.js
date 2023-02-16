@@ -5,7 +5,7 @@ export default {
     template: `
 
     <div>
-    <div>{{typist}}</div>
+    <div class="typing">{{typist}}</div>
     <!-- other chat components -->
   </div>
     `,
@@ -25,7 +25,7 @@ export default {
 
         }
     },
-    
+
         methods: {
             handleUserTyping() {}
         },
