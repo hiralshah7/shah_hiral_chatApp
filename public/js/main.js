@@ -40,9 +40,6 @@ import usertyping from './components/usertyping.js';
         vm.typist = ' ';
       }
       , 2000);
-
-      //adding a timeout to the typing event so that it will stop after 2 seconds but should 
-
     };
 
     //play audio once the messsage is reiceved
