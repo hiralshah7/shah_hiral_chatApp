@@ -10,8 +10,6 @@ export default {
   </div>
     `,
 
-    //value in the message box for typing event and stop typing event
-
     
 
     

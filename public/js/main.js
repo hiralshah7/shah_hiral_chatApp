@@ -48,7 +48,6 @@ import usertyping from './components/usertyping.js';
       // audio.play();
 
       //if message is recieved then the audio will play
-       // using if and else statement
 
       if (vm.messages) {
         console.log('message recieved');
